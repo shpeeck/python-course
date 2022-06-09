@@ -1,5 +1,8 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
+import datetime
+
+now = datetime.datetime.now()
 
 # Create your views here.
 myDate = "(22.03.2022)"
@@ -11,13 +14,13 @@ def name(request, name):
     return HttpResponse(f"Hello {name}!")
     
 def date(request):
-    return HttpResponse(myDate)
+    return HttpResponse(now.strftime("%d.%m.%Y"))
     
 def year(request):
-    return HttpResponse(myDate[7:11])
+    return HttpResponse(now.strftime("%Y"))
     
 def day(request):
-    return HttpResponse(myDate[1:3])
+    return HttpResponse(now.strftime("%d"))
     
 def month(request):
-    return HttpResponse(myDate[4:6])
+    return HttpResponse(now.strftime("%m"))
