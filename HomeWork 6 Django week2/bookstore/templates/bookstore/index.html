@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+</head>
+
+<body>
+    <h1>All books</h1>
+    <ul>
+    {% for book in books %}
+        <li>{{ book.title }} <a href="{% url 'book' book.id %}">link</a></li>
+        
+    {% endfor %}
+    </ul>
+</body>
+</html>

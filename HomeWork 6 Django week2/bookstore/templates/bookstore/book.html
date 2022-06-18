@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book</title>
+</head>
+
+<body>
+<div>
+    <h1>{{book.title}}</h1>
+    <h5>Year: {{book.released_year}}</h5>
+    <p>{{book.description}}</p>
+    <div>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'autor' book.author_id %}">Autor</a>
+    </div>
+</div>
+</body>
+</html>
