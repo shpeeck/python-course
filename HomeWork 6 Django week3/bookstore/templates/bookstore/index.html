@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+</head>
+
+<body>
+    <h1>All books</h1>
+    <h3>Search</h3>
+    <form action="" method="GET">
+        <input type="text" name='search'>
+        <input type="submit" value='Search'>
+    </form>
+    <ul>
+    {% for book in books %}
+        <li>{{ book.title }} <a href="{% url 'book' book.id %}">link</a></li>
+        
+    {% endfor %}
+    </ul>
+
+    <a href="{% url 'add_book' %}">
+        <h3>Add new book</h3>
+    </a>
+</body>
+</html>
