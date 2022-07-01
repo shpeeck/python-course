@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{book.title}}</h1>
+<h5>Year: {{book.released_year}}</h5>
+<h5> Author: {{autor}}</h5>
+<p>{{book.description}}</p>
+<div>
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'autor' book.author_id %}">Autor</a>
+</div>
+
+<h3>Comments</h3>
+{% if comments %}
+{% for comment in comments %}
+<div class="comment">
+    <h5>
+        Username: {{ comment.name }}
+    </h5>
+    <h5>
+        Date: {{ comment.created }}
+    </h5>
+    <h5>Comment:</h5>
+    <p>
+        {{ comment.body }}
+    </p>
+</div>
+{% endfor %}
+{% else %}
+<h2>No comments</h2>
+{% endif %}
+{% if user.is_authenticated %}
+<h3>add comment</h3>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ post_form.as_p }}
+    <input type="submit" value="add comment">
+</form>
+{% else %}
+<h2>Please login for send comment</h2>
+{% endif %}
+<br>
+<br>
+{% endblock content %}
